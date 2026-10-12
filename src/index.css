@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: #111827;
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+@layer utilities {
+  .key-press {
+    transition: transform 0.08s ease-out, box-shadow 0.15s ease-out;
+  }
+
+  .key-press:active {
+    transform: scale(0.92);
+  }
+
+  .neon-tap-glow {
+    animation: neonTapGlow 0.3s ease-out;
+  }
+
+  @keyframes neonTapGlow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6);
+      transform: scale(0.95);
+    }
+    50% {
+      box-shadow: 0 0 24px 8px rgba(56, 189, 248, 0.4);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+      transform: scale(1);
+    }
+  }
+
+  .neon-glow {
+    box-shadow:
+      0 0 8px rgba(56, 189, 248, 0.35),
+      0 0 24px rgba(56, 189, 248, 0.15),
+      inset 0 0 12px rgba(56, 189, 248, 0.08);
+  }
+
+  .neon-text {
+    text-shadow:
+      0 0 10px rgba(56, 189, 248, 0.5),
+      0 0 24px rgba(56, 189, 248, 0.2);
+  }
+
+  .call-glow {
+    box-shadow:
+      0 0 12px rgba(34, 197, 94, 0.5),
+      0 0 40px rgba(34, 197, 94, 0.25),
+      0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .whatsapp-glow {
+    box-shadow:
+      0 0 12px rgba(34, 197, 94, 0.5),
+      0 0 40px rgba(34, 197, 94, 0.25),
+      0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulseRing 1.4s ease-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Tab indicator transition */
+.tab-indicator {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Post-call summary slide */
+.summary-slide-up {
+  animation: summarySlideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes summarySlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Secure line toast */
+.toast-in {
+  animation: toastIn 0.3s ease-out;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Call overlay disconnect */
+.disconnect-fade {
+  animation: disconnectFade 0.5s ease-out;
+}
+
+@keyframes disconnectFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Decoy fade transition */
+.decoy-fade-in {
+  animation: decoyFadeIn 0.5s ease-out;
+}
+
+@keyframes decoyFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Voice listening pulse */
+.mic-listening {
+  animation: micPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4), 0 0 20px rgba(56, 189, 248, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3);
+  }
+}
+
+/* Privacy toast */
+.privacy-toast {
+  animation: privacyToastIn 0.3s ease-out;
+}
+
+@keyframes privacyToastIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Bottom sheet */
+.sheet-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.sheet-slide-up {
+  animation: sheetSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes sheetSlideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.sheet-enter {
+  animation: fadeIn 0.25s ease-out;
+}
